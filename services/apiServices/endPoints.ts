@@ -1,0 +1,1 @@
+export const exampleEndPoints =  '/api/v1/api-end-point-url'
