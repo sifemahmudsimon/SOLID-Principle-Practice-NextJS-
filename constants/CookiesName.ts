@@ -1,7 +1,8 @@
 const CookiesName = {
-    TokenNames: {
-        AccessToken: 'access-token',
-    },
+  Language: "language",
+  TokenNames: {
+    AccessToken: "access-token",
+  },
 };
 
 export default CookiesName;
