@@ -5,6 +5,29 @@ interface Props {
   onSelect: (phrase: string) => void;
 }
 
+/**
+ * SearchSuggestionList
+ *
+ * SOLID Principles Applied:
+ *
+ * SRP - Single Responsibility Principle (SRP)
+ * - This component is responsible only for rendering search suggestions
+ *   and notifying the parent when a suggestion is selected.
+ * - It does not manage search state, filtering, or navigation logic.
+ *
+ * OCP - Open/Closed Principle (OCP)
+ * - The component is open for extension through its props.
+ * - Different suggestion data and selection behaviors can be provided
+ *   without modifying the component.
+ *
+ * DIP - Dependency Inversion Principle (Partially)
+ * - This component depends on the onSelect callback abstraction instead
+ *   of implementing selection behavior or navigation logic itself.
+ * 
+ * ISP - Interface Segregation Principle (ISP)
+ * - The Props interface contains only the data and callback required
+ *   by this component.
+ */
 function SearchSuggestionList({ suggestions, onSelect }: Props) {
   if (!suggestions.length) return null;
 

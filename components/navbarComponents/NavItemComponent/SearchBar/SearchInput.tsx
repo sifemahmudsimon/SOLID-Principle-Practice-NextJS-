@@ -13,19 +13,42 @@ interface SearchInputProps
   > {
   value: string;
   onChange: (value: string) => void;
-  suggestions?: Suggestion[];
   className?: string;
 }
 
+/**
+ * SearchInput
+ *
+ * SOLID Principles Applied:
+ *
+ * SRP - Single Responsibility Principle (SRP)
+ * - This component is responsible only for rendering a controlled search input.
+ * - It delegates state management and input change handling to its parent component.
+ *
+ * OCP - Open/Closed Principle (OCP)
+ * - The component is open for extension through props.
+ * - Additional HTML input attributes can be passed via the inherited
+ *   InputHTMLAttributes without modifying the component.
+ *
+ * DIP - Dependency Inversion Principle (Partially)
+ * - This component depends on the onChange callback abstraction instead of
+ *   implementing input state management itself.
+ *
+ * LSP - Liskov Substitution Principle
+ * - subtype elements are easily swappable for the same element type from the supertype element”.
+ *
+ * ISP - Interface Segregation Principle (ISP)
+ * - SearchInputProps exposes only the properties required by this component
+ *   while inheriting standard HTML input attributes.
+ */
 function SearchInput({
   value,
   onChange,
-  suggestions = [],
   className = "",
   ...rest
 }: SearchInputProps) {
   return (
-    <div className="absolute left-1/2 -translate-x-1/2 bg-white h-10.5 w-full top-0 flex justify-center">
+    <div className="absolute left-1/2 -translate-x-1/2 bg-white h-10.5 w-full top-2 flex justify-center">
       <div className="relative w-full max-w-150">
         <input
           value={value}
@@ -36,28 +59,6 @@ function SearchInput({
         />
       </div>
     </div>
-  );
-}
-
-interface Props {
-  suggestions: Suggestion[];
-  onSelect: (value: string) => void;
-}
-function SearchSuggestionList({ suggestions, onSelect }: Props) {
-  if (!suggestions.length) return null;
-
-  return (
-    <ul className="absolute top-full left-0 right-0 mt-1 rounded border bg-white shadow-lg z-50">
-      {suggestions.map((item) => (
-        <li
-          key={item.phrase}
-          className="cursor-pointer px-4 py-2 hover:bg-gray-100"
-          onMouseDown={() => onSelect(item.phrase)}
-        >
-          {item.phrase}
-        </li>
-      ))}
-    </ul>
   );
 }
 

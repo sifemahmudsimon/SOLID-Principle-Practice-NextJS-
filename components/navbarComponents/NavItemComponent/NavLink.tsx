@@ -11,6 +11,30 @@ interface NavLinkProps {
   icon?: React.ReactNode;
 }
 
+/**
+ * NavLink
+ *
+ * SOLID Principles Applied:
+ *
+ * SRP - Single Responsibility Principle (SRP)
+ * - This component is responsible only for rendering a navigation link.
+ * - It determines whether the link is active and displays optional icon and label.
+ * - Navigation routing is delegated to Next.js Link.
+ *
+ * OCP - Open/Closed Principle (OCP)
+ * - The component is open for extension through its props.
+ * - Different links, labels, and icons can be provided without modifying
+ *   the component's implementation.
+ *
+ * DIP - Dependency Inversion Principle (Partially)
+ * - This component depends on the abstraction provided by Next.js routing
+ *   (Link and usePathname) instead of implementing navigation logic itself.
+ * 
+ * ISP - Interface Segregation Principle
+ * - The NavLinkProps interface exposes only the properties required by
+ *   this component (href, label, and optional icon), avoiding unnecessary
+ *   dependencies.
+ */
 function NavLink({ href, label, icon }: NavLinkProps) {
   const pathname = usePathname();
 

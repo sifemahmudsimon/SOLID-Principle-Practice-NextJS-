@@ -4,6 +4,15 @@ import SearchBar from "../SearchBar/SearchBar";
 import { BiSupport } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
 
+/**
+ * RightSection
+ *
+ * SOLID Principles Applied:
+ *
+ * SRP - Single Responsibility Principle (SRP)
+ * - This component is responsible only for composing the left section of the navigation bar.
+ * - It delegates navigation and language-switching behavior to child components.
+ */
 function RightSection() {
   return (
     <div className="flex gap-4">
