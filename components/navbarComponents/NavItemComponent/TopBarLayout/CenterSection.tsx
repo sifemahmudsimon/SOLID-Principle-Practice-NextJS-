@@ -10,7 +10,7 @@ function CenterSection() {
         alt="Logo"
         width={42}
         height={44}
-        className="absolute top-0 left-1/2 transform -translate-x-1/2 "
+        className="absolute top-2 left-1/2 transform -translate-x-1/2 "
       />
     </Link>
   );

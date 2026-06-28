@@ -8,7 +8,7 @@ import CenterSection from "./NavItemComponent/TopBarLayout/CenterSection";
 
 function NavigationBar() {
   return (
-    <div>
+    <div className="bg-white">
       <TopBarLayout
         leftSection={<LeftSection />}
         centerSection={<CenterSection />}

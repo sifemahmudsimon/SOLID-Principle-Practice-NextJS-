@@ -4,7 +4,7 @@ import LanguageChanger from "../LanguageChanger";
 function LeftSection() {
   return (
     <div className="flex gap-4">
-      <NavLinks />
+      <NavLinks href="/personal" label="Personal" />
       <LanguageChanger />
     </div>
   );

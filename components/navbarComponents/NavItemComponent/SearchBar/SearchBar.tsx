@@ -9,18 +9,19 @@ import { useRouter } from "next/navigation";
 
 export default function SearchBar() {
   const router = useRouter();
-  const [query, setQuery] = useState("");
+
+  const [searchQuery, setSearchQuery] = useState("");
   const [showInput, setShowInput] = useState(false);
 
-  const { suggestions } = useSearchSuggestions(query);
+  const { suggestions } = useSearchSuggestions(searchQuery);
 
   return (
     <div className="flex">
       {showInput && (
         <>
           <SearchInput
-            value={query}
-            onChange={setQuery}
+            value={searchQuery}
+            onChange={setSearchQuery}
             suggestions={suggestions}
             autoFocus
             onBlur={() => setShowInput(false)}
